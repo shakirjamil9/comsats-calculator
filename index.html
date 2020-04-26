@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CUI Aggregate Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <h2>Comsats Merit Calculator</h2>
+            <p>Marks in Matric:</p> <input type="text" placeholder="Obtained Marks" id="MatricObtained">
+            <input type="text" placeholder="Total Marks" id="MatricTotal">
+            <p>Marks in Inter:</p> <input type="text" placeholder="Obtained Marks" id="InterObtained">
+            <input type="text" placeholder="Total Marks" id="InterTotal">
+            <p>Marks in Entry Test (Out of 100):</p> <input type="text" placeholder="Entry Test Marks" id="nts">
+            <button onclick="calculate()" id="btn">Calculate</button>
+            <h2 id="agg"></h2>
+        </div>
+    </div>
+</body>
+    <!-- <script src="working.js"></script> -->
+    <script>
+    function calculate(){
+    var matric_obtained = document.getElementById("MatricObtained").value;
+    var matric_total = document.getElementById("MatricTotal").value;
+    var inter_obtained = document.getElementById("InterObtained").value;
+    var inter_total = document.getElementById("InterTotal").value;
+    var nts_obtained = document.getElementById("nts").value;
+    
+    var aggregate = ( (matric_obtained/matric_total) * 10 ) + ((inter_obtained/inter_total) * 40) + ((nts_obtained/100) * 50);
+
+    document.getElementById("agg").innerHTML = `Your Aggregate is ${aggregate}`;
+    }
+    </script>
+</html>
